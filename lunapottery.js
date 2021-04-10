@@ -38,9 +38,15 @@ function draw()
 	background(200);
 	orbitControl(2,2,0);
 	push();
-	fill(0,0,255);
-	translate(0,-100,200);
-	plane(200,100);
+	for(var i=0;i<4;i++)
+	{
+		fill(0,i*40,255);
+		rotateY(PI/2);
+		push();
+		translate(0,-300,500);
+		plane(1000,600);
+	}
+	pop();
 	pop();
 //	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
 //	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
