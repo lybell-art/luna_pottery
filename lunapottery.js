@@ -33,13 +33,15 @@ function initialDate()
 	return Math.round((d1.valueOf()-d2.valueOf())/86400000);
 }
 
-function seasonColor(c)
+function seasonColor(c, no)
 {
+	const colorData=[[color(188,206,172), color(172,206,204), color(196,182,157), color(171,177,182)],
+			[color(125,255,172), color(40,168,255), color(255,170,15), color(100,100,105)]];
 	var c_=cycle(c,-59-45,365);
-	if(c_<92) return lerpColor(color(188,206,172), color(172,206,204), map(c_,0,92,0,1));
-	else if(c_<184) return lerpColor(color(172,206,204), color(196,182,157), map(c_,92,184,0,1));
-	else if(c_<275) return lerpColor(color(196,182,157), color(171,177,182), map(c_,184,275,0,1));
-	else return lerpColor(color(171,177,182), color(188,206,172), map(c_,275,365,0,1));
+	if(c_<92) return lerpColor(colorData[no][0], colorData[no][1], map(c_,0,92,0,1));
+	else if(c_<184) return lerpColor(colorData[no][1], colorData[no][2], map(c_,92,184,0,1));
+	else if(c_<275) return lerpColor(colorData[no][2], colorData[no][3], map(c_,184,275,0,1));
+	else return lerpColor(colorData[no][3], colorData[no][0], map(c_,275,365,0,1));
 }
 
 function cycle(n, p, c)
@@ -70,7 +72,7 @@ function setup()
 
 function draw()
 {
-	let seasonCol = seasonColor(slider.value());
+	let seasonCol = seasonColor(slider.value(),1);
 	if(darkMode) background(5);
 	else background(200);
 	orbitControl(2,2,0);
