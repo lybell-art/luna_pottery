@@ -14,20 +14,20 @@ function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
 	myCam = createCamera();
-	myCam.lookAt(0, -20, 0);
-	myCam.setPosition(0, -400, 600);
+	myCam.lookAt(0, -80, 0);
+	myCam.setPosition(450, -400, -175);
 	setCamera(myCam);
 	noStroke();
 	debugMode();
-	slider1 = createSlider(-1000, 1000, 0);
+	slider1 = createSlider(-1000, 1000, 450);
 	slider1.position(10, 10);
-	slider2 = createSlider(-1000, 1000, 0);
+	slider2 = createSlider(-1000, 1000, -400);
 	slider2.position(10, 40);
-	slider3 = createSlider(-1000, 1000, 0);
+	slider3 = createSlider(-1000, 1000, -175);
 	slider3.position(10, 70);
 	slider4 = createSlider(-1000, 1000, 0);
 	slider4.position(10, 100);
-	slider5 = createSlider(-1000, 1000, 0);
+	slider5 = createSlider(-1000, 1000, -80);
 	slider5.position(10, 140);
 	slider6 = createSlider(-1000, 1000, 0);
 	slider6.position(10, 180);
@@ -36,9 +36,9 @@ function setup()
 function draw()
 {
 	background(200);
-//	orbitControl(1,1,1);
-	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
-	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
+	orbitControl(1,1,0);
+//	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
+//	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
 	lights();
 	
 	translate(0,-80,0);
