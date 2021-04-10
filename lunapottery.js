@@ -8,6 +8,7 @@ class showPottery{
 	static pre=0;
 	static cur=0;
 	static scale=0;
+	static scale2=0;
 	static set(c){
 		showPottery.pre=showPottery.cur;
 		showPottery.cur=cycle(showPottery.pre,c,3);
@@ -20,8 +21,8 @@ class showPottery{
 		scale(Math.abs(showPottery.scale));
 		if(showPottery.scale >= 0) model(pot[showPottery.cur]);
 		else model(pot[showPottery.pre]);
-		if(showPottery.scale < 16 ) showPottery.scale+=1;
-		else showPottery.scale = 16;
+		if(showPottery.scale < 16 ) {showPottery.scale+=2+showPottery.scale2, showPottery.scale2-=0.1;};
+		else {showPottery.scale = 16; showPottery.scale2 = 0;};
 		pop();
 	}
 }
