@@ -49,21 +49,21 @@ function draw()
 		pop();
 	}
 	pop();
-	
-	lights();
-	directionalLight(200,230,215,-0.127,0.45,0.156);
-	pointLight(0, 180, 0,0, -480, 0);
-	pointLight(150, 176, 210, 0, 580, 0);
 	push();
 	rotateX(PI/2);
 	fill(139, 169, 170);
 	plane(1000,1000);
 	pop();
+	
+	lights();
+	directionalLight(200,230,215,-0.127,0.45,0.156);
+	pointLight(0, 180, 0,0, -480, 0);
+	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
 	ambientMaterial(220, 232, 229);
 	box(80,160,80);
 	push();
-	translate(0,-85+sin(millis()/3600)*12,0);
+	translate(0,-90+sin(millis()/2400)*7,0);
 	rotateX(PI);
 	scale(16);
 	model(pot[0]);
