@@ -18,8 +18,8 @@ class showPottery{
 		translate(0,-90+sin(millis()/2400)*7,0);
 		rotateX(PI);
 		scale(Math.abs(showPottery.scale));
-		if(showPottery.scale > 0) model(pot[cur]);
-		else model(pot[pre]);
+		if(showPottery.scale >= 0) model(pot[showPottery.cur]);
+		else model(pot[showPottery.pre]);
 		showPottery.scale+=0.5;
 		pop();
 	}
@@ -79,7 +79,7 @@ function draw()
 	pop();
 	push();
 	rotateX(PI/2);
-	fill(139, 169, 170);
+	fill(184, 203, 203);
 	plane(1000,1000);
 	pop();
 	
