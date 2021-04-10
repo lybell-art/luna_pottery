@@ -19,17 +19,17 @@ function setup()
 	setCamera(myCam);
 	noStroke();
 	debugMode();
-	slider1 = createSlider(-1000, -1000, 0);
+	slider1 = createSlider(-1000, 1000, 0);
 	slider1.position(10, 10);
-	slider2 = createSlider(-1000, -1000, 0);
+	slider2 = createSlider(-1000, 1000, 0);
 	slider2.position(10, 40);
-	slider3 = createSlider(-1000, -1000, 0);
+	slider3 = createSlider(-1000, 1000, 0);
 	slider3.position(10, 70);
-	slider4 = createSlider(-1000, -1000, 0);
+	slider4 = createSlider(-1000, 1000, 0);
 	slider4.position(10, 100);
-	slider5 = createSlider(-1000, -1000, 0);
+	slider5 = createSlider(-1000, 1000, 0);
 	slider5.position(10, 140);
-	slider6 = createSlider(-1000, -1000, 0);
+	slider6 = createSlider(-1000, 1000, 0);
 	slider6.position(10, 180);
 }
 
