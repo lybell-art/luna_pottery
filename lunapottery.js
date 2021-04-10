@@ -13,7 +13,7 @@ function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
 	myCam = createCamera();
-	myCam.lookAt(0, 20, 0);
+	myCam.lookAt(0, -20, 0);
 	myCam.setPosition(230, 500, 230);
 	setCamera(myCam);
 	noStroke();
