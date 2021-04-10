@@ -64,13 +64,11 @@ function draw()
 	ambientMaterial(220, 232, 229);
 	box(80,160,80);
 	push();
-	translate(0,-90,0);
+	translate(0,-85+sin(millis()/3600)*12,0);
 	rotateX(PI);
-	rotateY(rot);
 	scale(16);
 	model(pot[0]);
 	pop();
-	rot+=0.02;
 }
 
 function windowResized()
