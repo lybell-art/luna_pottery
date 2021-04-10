@@ -22,11 +22,13 @@ function draw()
 	orbitControl();
 	
 	lights();
-	translate(0,80,0);
+	
+	translate(0,-80,0);
 	fill(255);
 	box(80,160,80);
 	push();
-	translate(0,100,0);
+	translate(0,-100,0);
+	rotateX(PI);
 	scale(16);
 	model(pot[0]);
 	pop();
