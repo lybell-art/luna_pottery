@@ -26,9 +26,10 @@ function draw()
 	orbitControl(1,1,0);
 	
 	lights();
+	ambientLight(240);
 	
 	translate(0,-80,0);
-	fill(255);
+	ambientMaterial(220,225,223);
 	box(80,160,80);
 	push();
 	translate(0,-90,0);
