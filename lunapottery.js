@@ -10,7 +10,7 @@ class showPottery{
 	static scale=0;
 	static set(c){
 		showPottery.pre=showPottery.cur;
-		showPottery.cur=c;
+		showPottery.cur=cycle(showPottery.pre,c,3);
 		showPottery.scale=-16;
 	}
 	static show(){
@@ -20,7 +20,8 @@ class showPottery{
 		scale(Math.abs(showPottery.scale));
 		if(showPottery.scale >= 0) model(pot[showPottery.cur]);
 		else model(pot[showPottery.pre]);
-		showPottery.scale+=0.5;
+		if(showPottery.scale < 16 ) showPottery.scale+=0.5;
+		else showPottery.scale = 16;
 		pop();
 	}
 }
@@ -110,10 +111,10 @@ function keyPressed() {
 	switch(keyCode)
 	{
 		case LEFT_ARROW:
-			showPottery.set(cycle(modelNo,-1,3));
+			showPottery.set(-1);
 			break;
 		case RIGHT_ARROW:
-			showPottery.set(cycle(modelNo,1,3));
+			showPottery.set(1);
 			break;
 		case 90://Z
 			darkMode=!darkMode;
