@@ -37,8 +37,8 @@ function draw()
 {
 	background(200);
 //	orbitControl(1,1,1);
-	myCam.setPosition(slider1, slider2, slider3);
-	myCam.lookAt(slider4, slider5, slider6);
+	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
+	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
 	lights();
 	
 	translate(0,-80,0);
