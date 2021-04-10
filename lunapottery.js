@@ -11,7 +11,7 @@ function preload() {
 function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
-	camera(0, -400, 100, 0, 0, 0, 0, 0, 1);
+	camera(0, 100, -400, 0, 80, 0, 0, 1, 0);
 	noStroke();
 }
 
@@ -21,14 +21,14 @@ function draw()
 	orbitControl();
 	
 	lights();
-	translate(0,0,50);
+	translate(0,80,0);
 	fill(255);
-	box(100,100,200);
+	box(80,160,80);
 	push();
-	translate(0,0,140);
+	translate(0,180,0);
 //	rotateX(rot);
 	rotateZ(PI/2);
-	scale(20);
+	scale(16);
 	model(pot[0]);
 	pop();
 //	rot+=0.1;
