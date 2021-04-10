@@ -65,6 +65,7 @@ function setup()
 	noStroke();
 	slider = createSlider(0, 365, initialDate());
 	slider.position(10, 10);
+	cameraPos={eyeX:450, eyeY:-400, eyeZ:175, centerX:0, centerY:-80, centerZ:0};
 }
 
 function draw()
@@ -129,6 +130,10 @@ function keyPressed() {
 function mouseWheel(event) { //zoom
 	let e = event.delta;
 	myCam.move(0,0, e * 0.1);
+	cameraPos=extractCameraPos(myCam); //for screen size consistency
+}
+function mouseDragged()
+{
 	cameraPos=extractCameraPos(myCam); //for screen size consistency
 }
 
