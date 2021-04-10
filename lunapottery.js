@@ -1,4 +1,4 @@
-let pot=[null,null.null];
+let pot=[null,null,null];
 let rot=0;
 
 function preload() {
