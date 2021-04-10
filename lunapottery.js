@@ -12,10 +12,10 @@ function preload() {
 function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
-	camera = createCamera();
-	camera.lookAt(0, -80, 0);
-	camera.setPosition(80, 100, -400);
-	setCamera(camera);
+	myCam = createCamera();
+	myCam.lookAt(0, -80, 0);
+	myCam.setPosition(80, 100, -400);
+	setCamera(myCam);
 	noStroke();
 	debugMode();
 }
