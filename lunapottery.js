@@ -27,7 +27,7 @@ function draw()
 	push();
 	translate(0,180,0);
 //	rotateX(rot);
-	rotateZ(PI/2);
+//	rotateZ(PI/2);
 	scale(16);
 	model(pot[0]);
 	pop();
