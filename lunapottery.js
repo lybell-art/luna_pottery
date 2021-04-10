@@ -14,8 +14,8 @@ function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
 	myCam = createCamera();
-	myCam.lookAt(0, -80, 0);
 	myCam.setPosition(450, -400, -175);
+	myCam.lookAt(0, -80, 0);
 	setCamera(myCam);
 	noStroke();
 	debugMode();
@@ -36,7 +36,7 @@ function setup()
 function draw()
 {
 	background(200);
-	orbitControl(1,1,0);
+	orbitControl(1,1,1);
 //	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
 //	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
 	lights();
