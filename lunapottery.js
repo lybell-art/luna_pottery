@@ -23,7 +23,7 @@ function setup()
 function draw()
 {
 	background(200);
-	orbitControl(1,1,0);
+	orbitControl(1,1,1);
 	
 	lights();
 	
