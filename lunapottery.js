@@ -13,6 +13,7 @@ function setup()
 	createCanvas(windowWidth, windowHeight, WEBGL);
 	camera(0, 100, -400, 0, 80, 0, 0, 1, 0);
 	noStroke();
+	debugMode();
 }
 
 function draw()
@@ -25,9 +26,7 @@ function draw()
 	fill(255);
 	box(80,160,80);
 	push();
-	translate(0,180,0);
-//	rotateX(rot);
-//	rotateZ(PI/2);
+	translate(0,100,0);
 	scale(16);
 	model(pot[0]);
 	pop();
