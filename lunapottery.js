@@ -11,7 +11,7 @@ function preload() {
 function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
-	camera(0, 100, -400, 0, 80, 0, 0, 1, 0);
+	camera(0, 100, -400, 0, 80, 0, 0, -1, 0);
 	noStroke();
 	debugMode();
 }
