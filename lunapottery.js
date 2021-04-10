@@ -1,6 +1,6 @@
 let pot=[null,null,null];
 let rot=0;
-let myCam;
+let myCam, cameraPos;
 let slider1, slider2, slider3, slider4, slider5, slider6;
 
 function preload() {
@@ -52,4 +52,26 @@ function draw()
 	model(pot[0]);
 	pop();
 	rot+=0.02;
+}
+
+function windowResized()
+{
+	resizeCanvas(windowWidth, windowHeight, false);
+	myCam.setPosition(cameraPos.eyeX,cameraPos.eyeY,cameraPos.eyeZ);
+	myCam.lookAt(cameraPos.centerX,cameraPos.centerY,cameraPos.centerZ);
+}
+
+function mouseWheel(event) { //zoom
+	let e = event.delta;
+	myCam.move(0,0, e * 0.1);
+	cameraPos=extractCameraPos(myCam); //for screen size consistency
+}
+
+function extractCameraPos(cam) //for screen size consistency
+{
+	if(cam)
+	{
+		return {eyeX:cam.eyeX, eyeY:cam.eyeY, eyeZ:cam.eyeZ, centerX:cam.centerX, centerY:cam.centerY, centerZ:cam.centerZ};
+	}
+	else return {eyeX:0, eyeY:0, eyeZ:(height/2.0) / tan(PI*30.0 / 180.0), centerX:0, centerY:0, centerZ:0};
 }
