@@ -41,6 +41,7 @@ function draw()
 //	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
 	lights();
 	directionalLight(220,230,220,-0.127,0.45,0.156);
+	directionalLight(220,230,220,-0.127,-0.45,0.156);
 	pointLight(102, 108, 117,slider1.value(), slider2.value(), slider3.value());
 	pointLight(115, 112, 107,slider4.value(), slider5.value(), slider6.value());
 	translate(0,-80,0);
