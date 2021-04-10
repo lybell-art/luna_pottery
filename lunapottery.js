@@ -15,7 +15,7 @@ class showPottery{
 	}
 	static show(){
 		push();
-		translate(0,-90+sin(millis()/2400)*7,0);
+		translate(0,-90+sin(millis()/1000)*7,0);
 		rotateX(PI);
 		scale(Math.abs(showPottery.scale));
 		if(showPottery.scale >= 0) model(pot[showPottery.cur]);
