@@ -22,12 +22,12 @@ function draw()
 	lights();
 	translate(0,0,50);
 	fill(255);
-	box(50,50,100);
+	box(100,100,200);
 	push();
-	translate(0,0,70);
+	translate(0,0,140);
 //	rotateX(rot);
 	rotateZ(PI/2);
-	scale(10);
+	scale(20);
 	model(pot[0]);
 	pop();
 //	rot+=0.1;
