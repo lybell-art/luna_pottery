@@ -38,9 +38,9 @@ function draw()
 	background(200);
 	orbitControl(2,2,0);
 	push();
-	rotateX(PI/2);
 	fill(0,0,255);
-	plane(100,100);
+	translate(200,-100,0);
+	plane(200,200);
 	pop();
 //	myCam.setPosition(slider1.value(), slider2.value(), slider3.value());
 //	myCam.lookAt(slider4.value(), slider5.value(), slider6.value());
@@ -49,8 +49,11 @@ function draw()
 //	directionalLight(200,215,230,slider1.value()/1000,slider2.value()/1000, slider3.value()/1000);
 	pointLight(0, 180, 0,0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
+	push();
+	rotateX(PI/2);
 	fill(255,0,0);
 	plane(1000,1000);
+	pop();
 	translate(0,-80,0);
 	ambientMaterial(220, 232, 229);
 	box(80,160,80);
