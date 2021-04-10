@@ -56,8 +56,7 @@ function draw()
 	pointLight(150, 176, 210, 0, 580, 0);
 	push();
 	rotateX(PI/2);
-	fill(255,0,0);
-	ambientMaterial(139, 169, 170);
+	fill(139, 169, 170);
 	plane(1000,1000);
 	pop();
 	translate(0,-80,0);
