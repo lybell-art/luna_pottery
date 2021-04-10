@@ -26,6 +26,22 @@ class showPottery{
 	}
 }
 
+function initialDate()
+{
+	let d1=new Date(), d2=new Date();
+	d2.setMonth(0,1);
+	return Math.round((d1.valueOf()-d2.valueOf())/86400000);
+}
+
+function seasonColor(c)
+{
+	var c_=cycle(c,59+45,365);
+	if(c<92) return lerpColor(color(188,206,172), color(172,206,204), map(c_,0,92,0,1));
+	else if(c<184) return lerpColor(color(172,206,204), color(196,182,157), map(c_,92,184,0,1));
+	else if(c<275) return lerpColor(color(196,182,157), color(171,177,182), map(c_,184,275,0,1));
+	else return lerpColor(color(171,177,182), color(188,206,172), map(c_,275,365,0,1));
+}
+
 function cycle(n, p, c)
 {
 	let v=n+p;
@@ -47,23 +63,13 @@ function setup()
 	myCam.setPosition(450, -400, -175);
 	myCam.lookAt(0, -80, 0);
 	noStroke();
-	debugMode();
-	slider1 = createSlider(-1000, 1000, 450);
-	slider1.position(10, 10);
-	slider2 = createSlider(-1000, 1000, -400);
-	slider2.position(10, 40);
-	slider3 = createSlider(-1000, 1000, -175);
-	slider3.position(10, 70);
-	slider4 = createSlider(-1000, 1000, 0);
-	slider4.position(10, 100);
-	slider5 = createSlider(-1000, 1000, -80);
-	slider5.position(10, 140);
-	slider6 = createSlider(-1000, 1000, 0);
-	slider6.position(10, 180);
+	slider = createSlider(0, 365, initialDate());
+	slider.position(10, 10);
 }
 
 function draw()
 {
+	let seasonCol = seasonColor(slider.value());
 	if(darkMode) background(5);
 	else background(200);
 	orbitControl(2,2,0);
@@ -88,7 +94,7 @@ function draw()
 	
 	lights();
 	if(!darkMode) directionalLight(200,230,215,-0.127,0.45,0.156);
-	pointLight(0, 180, 0,0, -480, 0);
+	pointLight(seasonCol, 0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
 	if(darkMode) ambientMaterial(22, 23, 22);
