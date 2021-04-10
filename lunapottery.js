@@ -64,7 +64,8 @@ function setup()
 
 function draw()
 {
-	background(200);
+	if(darkMode) background(5);
+	else background(200);
 	orbitControl(2,2,0);
 	push();
 	translate(0,-300,0);
@@ -80,16 +81,18 @@ function draw()
 	pop();
 	push();
 	rotateX(PI/2);
-	fill(184, 203, 203);
+	if(darkMode) fill(18, 20, 20);
+	else fill(184, 203, 203);
 	plane(1000,1000);
 	pop();
 	
 	lights();
-	directionalLight(200,230,215,-0.127,0.45,0.156);
+	if(!darkMode) directionalLight(200,230,215,-0.127,0.45,0.156);
 	pointLight(0, 180, 0,0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
-	ambientMaterial(220, 232, 229);
+	if(darkMode) ambientMaterial(22, 23, 22);
+	else ambientMaterial(220, 232, 229);
 	box(80,160,80);
 //	push();
 //	translate(0,-90+sin(millis()/2400)*7,0);
