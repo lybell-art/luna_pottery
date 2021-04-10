@@ -26,7 +26,6 @@ function draw()
 	orbitControl(1,1,0);
 	
 	lights();
-	ambientLight(240);
 	
 	translate(0,-80,0);
 	ambientMaterial(220,225,223);
