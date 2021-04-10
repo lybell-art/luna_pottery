@@ -20,7 +20,7 @@ class showPottery{
 		scale(Math.abs(showPottery.scale));
 		if(showPottery.scale >= 0) model(pot[showPottery.cur]);
 		else model(pot[showPottery.pre]);
-		if(showPottery.scale < 16 ) showPottery.scale+=0.5;
+		if(showPottery.scale < 16 ) showPottery.scale+=1;
 		else showPottery.scale = 16;
 		pop();
 	}
