@@ -11,6 +11,7 @@ function preload() {
 function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
+	noStroke();
 }
 
 function draw()
@@ -20,10 +21,13 @@ function draw()
 	
 	lights();
 	translate(0,0,50);
+	fill(255);
 	box(50,50,100);
 	push();
 	translate(0,0,70);
-	rotate(rot);
+	rotateY(PI/2);
+	rotateX(rot);
+	scale(10);
 	model(pot[0]);
 	pop();
 	rot+=0.1;
