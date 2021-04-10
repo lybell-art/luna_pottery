@@ -31,11 +31,11 @@ function draw()
 	fill(255);
 	box(80,160,80);
 	push();
-	translate(0,-100,0);
+	translate(0,-90,0);
 	rotateX(PI);
 	rotateZ(rot);
 	scale(16);
 	model(pot[0]);
 	pop();
-	rot+=0.1;
+	rot+=0.05;
 }
