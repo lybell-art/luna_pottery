@@ -88,7 +88,8 @@ function draw()
 	push();
 	rotateX(PI/2);
 	if(darkMode) fill(18, 20, 20);
-	else fill(184, 203, 203);
+//	else fill(184, 203, 203);
+	else fill(seasonCol);
 	plane(1000,1000);
 	pop();
 	
@@ -100,12 +101,6 @@ function draw()
 	if(darkMode) ambientMaterial(22, 23, 22);
 	else ambientMaterial(220, 232, 229);
 	box(80,160,80);
-//	push();
-//	translate(0,-90+sin(millis()/2400)*7,0);
-//	rotateX(PI);
-//	scale(16);
-//	model(pot[modelNo]);
-//	pop();
 	showPottery.show();
 }
 
