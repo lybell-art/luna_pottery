@@ -1,5 +1,6 @@
 let pot=[null,null,null];
 let rot=0;
+let myCam;
 
 function preload() {
 	for(var i=0;i<3;i++)
@@ -11,7 +12,10 @@ function preload() {
 function setup()
 {
 	createCanvas(windowWidth, windowHeight, WEBGL);
-	camera(0, 100, -400, 0, 80, 0, 0, -1, 0);
+	camera = createCamera();
+	camera.lookAt(0, -80, 0);
+	camera.setPosition(80, 100, -400);
+	setCamera(camera);
 	noStroke();
 	debugMode();
 }
@@ -19,7 +23,7 @@ function setup()
 function draw()
 {
 	background(200);
-	orbitControl();
+	orbitControl(1,1,0);
 	
 	lights();
 	
@@ -29,8 +33,9 @@ function draw()
 	push();
 	translate(0,-100,0);
 	rotateX(PI);
+	rotateZ(rot);
 	scale(16);
 	model(pot[0]);
 	pop();
-//	rot+=0.1;
+	rot+=0.1;
 }
