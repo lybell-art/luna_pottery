@@ -1,7 +1,35 @@
 let pot=[null,null,null];
-let rot=0;
+let transitor={pre:0, cur:0, scale:0, set:function(c){this.pre=this.cur, this.cur=c, this.scale=-16;}};
 let myCam, cameraPos;
 let slider1, slider2, slider3, slider4, slider5, slider6;
+let darkMode=false;
+
+class showPottery{
+	static pre=0;
+	static cur=0;
+	static scale=0;
+	static set(c){
+		showPottery.pre=showPottery.cur;
+		showPottery.cur=c;
+		showPottery.scale=-16;
+	}
+	static show(){
+		push();
+		translate(0,-90+sin(millis()/2400)*7,0);
+		rotateX(PI);
+		scale(Math.abs(showPottery.scale));
+		if(showPottery.scale > 0) model(pot[cur]);
+		else model(pot[pre]);
+		showPottery.scale+=0.5;
+		pop();
+	}
+}
+
+function cycle(n, p, c)
+{
+	let v=n+p;
+	return v-Math.floor(v/c)*c;
+}
 
 function preload() {
 	for(var i=0;i<3;i++)
@@ -62,12 +90,13 @@ function draw()
 	translate(0,-80,0);
 	ambientMaterial(220, 232, 229);
 	box(80,160,80);
-	push();
-	translate(0,-90+sin(millis()/2400)*7,0);
-	rotateX(PI);
-	scale(16);
-	model(pot[0]);
-	pop();
+//	push();
+//	translate(0,-90+sin(millis()/2400)*7,0);
+//	rotateX(PI);
+//	scale(16);
+//	model(pot[modelNo]);
+//	pop();
+	showPottery.show();
 }
 
 function windowResized()
@@ -75,6 +104,21 @@ function windowResized()
 	resizeCanvas(windowWidth, windowHeight, false);
 	myCam.setPosition(cameraPos.eyeX,cameraPos.eyeY,cameraPos.eyeZ);
 	myCam.lookAt(cameraPos.centerX,cameraPos.centerY,cameraPos.centerZ);
+}
+
+function keyPressed() {
+	switch(keyCode)
+	{
+		case LEFT_ARROW:
+			showPottery.set(cycle(modelNo,-1,3));
+			break;
+		case RIGHT_ARROW:
+			showPottery.set(cycle(modelNo,1,3));
+			break;
+		case 90://Z
+			darkMode=!darkMode;
+			break;
+	}
 }
 
 function mouseWheel(event) { //zoom
