@@ -18,7 +18,7 @@ function setup()
 
 function draw()
 {
-	background(0);
+	background(200);
 	orbitControl();
 	
 	lights();
