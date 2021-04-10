@@ -38,12 +38,13 @@ function draw()
 	background(200);
 	orbitControl(2,2,0);
 	push();
+	translate(0,-300,0);
 	for(var i=0;i<4;i++)
 	{
 		fill(0,i*40,255);
 		rotateY(PI/2);
 		push();
-		translate(0,-300,500);
+		translate(0,0,500);
 		plane(1000,600);
 		pop();
 	}
