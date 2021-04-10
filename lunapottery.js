@@ -97,7 +97,7 @@ function draw()
 	pop();
 	
 	lights();
-	if(!darkMode) directionalLight(200,230,215,-0.127,0.45,0.156);
+	if(!darkMode) directionalLight(160,184,172,-0.127,0.45,0.156);
 	pointLight(seasonCol, 0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
