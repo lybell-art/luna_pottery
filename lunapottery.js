@@ -73,7 +73,7 @@ function setup()
 function draw()
 {
 	let seasonCol=[];
-	for(var i=0;i<2;i++) seasonCol[i] = seasonColor(slider.value(),1);
+	for(var i=0;i<2;i++) seasonCol[i] = seasonColor(slider.value(),i);
 	
 	if(darkMode) background(5);
 	else background(200);
