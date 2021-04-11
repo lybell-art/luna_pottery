@@ -1,3 +1,5 @@
+#version 400
+
 precision mediump float;
 
 uniform vec2 uResolution;
