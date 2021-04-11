@@ -18,7 +18,7 @@ void main()
 	float dist = max(abs(uv.x-0.5),abs(uv.y-0.5));
 //	vec4 inCol = vec4(0.737,0.807,0.674, 1.0);
 	float distTime = abs(dist - fractTime);
-	float tempCol = (distTime < 0.02) ? (pow(distTime*50.0,2.0)/2.0+0.5) : 1.0;
+	float tempCol = (distTime < 0.02) ? ((distTime*50.0)*(distTime*50.0))/2.0+0.5) : 1.0;
 	tempCol = 1.0 - (1.0 - tempCol) * (1.0-abs(dist+0.5));
 	vec4 outCol=vec4(tempCol,tempCol,tempCol,1.0);
 	outColor=screenBlend(inCol*0.7, outCol);
