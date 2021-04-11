@@ -91,8 +91,7 @@ function draw()
 	// passing the shaderTexture layer geometry to render on
 	sansuTexture.rect(0,0,sansuTexture.width,sansuTexture.height);
 
-	if(darkMode) background(5);
-	else background(200);
+	background(255);
 	orbitControl(2,2,0);
 	
 	//plain draw
@@ -112,8 +111,7 @@ function draw()
 	//floor draw
 	push();
 	rotateX(PI/2);
-	if(darkMode) fill(18, 20, 20);
-	else fill(seasonCol[0]);
+	fill(255);
 	plane(1000,1000);
 	pop();
 	
@@ -123,9 +121,11 @@ function draw()
 	pointLight(seasonCol[1], 0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
+	if(darkMode) ambientMaterial(18, 20, 20);
+	else ambientMaterial(seasonCol[0]);
+	box(80,160,80);
 	if(darkMode) ambientMaterial(22, 23, 22);
 	else ambientMaterial(220, 232, 229);
-	box(80,160,80);
 	showPottery.show();
 }
 
