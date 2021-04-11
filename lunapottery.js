@@ -1,8 +1,9 @@
 let pot=[null,null,null];
 let transitor={pre:0, cur:0, scale:0, set:function(c){this.pre=this.cur, this.cur=c, this.scale=-16;}};
 let myCam, cameraPos;
-let slider1, slider2, slider3, slider4, slider5, slider6;
+let slider;
 let darkMode=false;
+let sansuShader, sansuTexture;
 
 class showPottery{
 	static pre=0;
@@ -55,6 +56,7 @@ function preload() {
 	{
 		pot[i]=loadModel('assets/ceramic'+(i+1)+'.obj');
 	}
+	sansuShader = loadShader('sansu.vert','sansu.frag');
 }
 
 function setup()
@@ -68,6 +70,10 @@ function setup()
 	slider = createSlider(0, 365, initialDate());
 	slider.position(10, 10);
 	cameraPos={eyeX:450, eyeY:-400, eyeZ:175, centerX:0, centerY:-80, centerZ:0};
+	
+	//prepare sansu-wall texture
+	sansuTexture = createGraphics(1000, 600, WEBGL);
+	sansuTexture.noStroke();
 }
 
 function draw()
@@ -75,6 +81,16 @@ function draw()
 	let seasonCol=[];
 	for(var i=0;i<2;i++) seasonCol[i] = seasonColor(slider.value(),i);
 	
+	//rendering sansu-wall
+	sansuTexture.shader(sansuShader);
+	
+	sansuShader.setUniform("uResolution", [width, height]);
+	sansuShader.setUniform("uTime", millis() / 1000.0);
+	sansuShader.setUniform("inCol", seasonCol[0]._array);
+
+	// passing the shaderTexture layer geometry to render on
+	sansuTexture.rect(0,0,sansuTexture.width,sansuTexture.height);
+
 	if(darkMode) background(5);
 	else background(200);
 	orbitControl(2,2,0);
@@ -82,6 +98,7 @@ function draw()
 	//plain draw
 	push();
 	translate(0,-300,0);
+	texture(sansuTexture);
 	for(var i=0;i<4;i++)
 	{
 		fill(0,i*40,255);
