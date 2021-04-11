@@ -57,7 +57,7 @@ function preload() {
 		pot[i]=loadModel('assets/ceramic'+(i+1)+'.obj');
 	}
 	sansuShader = loadShader('sansu.vert','sansu.frag');
-	floorShader = loadShader('sansu.vert','floor.frag');
+	floorShader = loadShader('floor.vert','floor.frag');
 }
 
 function setup()
