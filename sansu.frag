@@ -1,5 +1,3 @@
-#version 400
-
 uniform vec2 uResolution;
 uniform float uTime;
 uniform vec4 inCol;
