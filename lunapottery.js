@@ -5,6 +5,7 @@ let slider;
 let darkMode=false;
 let sansuShader, sansuTexture, floorShader, floorTexture;
 let bgm1, bgm2, isBGMStarted=false;
+/* BGM1 출처 : 뮤비맛집-  https://youtu.be/1bPUjZwnLyk */
 
 class showPottery{
 	static pre=0;
