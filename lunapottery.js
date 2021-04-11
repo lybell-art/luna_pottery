@@ -101,7 +101,6 @@ function draw()
 	texture(sansuTexture);
 	for(var i=0;i<4;i++)
 	{
-		fill(0,i*40,255);
 		rotateY(PI/2);
 		push();
 		translate(0,0,500);
