@@ -66,7 +66,7 @@ void main()
 	//mix color gradation
 	for(int i=0;i<4;i++)
 	{
-		outCol[i]=mix(col[i], white, (mountain[i] > uv.y) ? (mountain[i]-uv.y)*3 : 1.0);
+		outCol[i]=mix(col[i], white, (mountain[i] > uv.y) ? (mountain[i]-uv.y)*3.0 : 1.0);
 	}
 	vec4 tempCol = outCol[0] * outCol[1] * outCol[2] * outCol[3];
 
