@@ -101,7 +101,7 @@ function draw()
 	floorShader.setUniform("uTime", millis() / 1000.0);
 	floorShader.setUniform("inCol", seasonCol[0]._array);
 	// passing the shaderTexture layer geometry to render on
-	floorTexture.plane(1000);
+	floorTexture.rect(-floorTexture.width/2, -floorTexture.height/2, floorTexture.width, floorTexture.height);
 
 	background(255);
 	orbitControl(2,2,0);
