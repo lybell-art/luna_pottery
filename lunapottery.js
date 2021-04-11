@@ -103,7 +103,7 @@ function draw()
 //	floorTexture.background(0);
 	floorTexture.fill(128);
 	// passing the shaderTexture layer geometry to render on
-	floorTexture.plain(1000);
+	floorTexture.plane(1000);
 
 	background(255);
 	orbitControl(2,2,0);
