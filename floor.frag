@@ -11,7 +11,7 @@ vec4 screenBlend(vec4 a, vec4 b)
 
 void main()
 {
-	vec2 uv = (gl_FragCoord.xy * 2 -1)/uResolution;
+	vec2 uv = (gl_FragCoord.xy * 2.0 - 1.0)/uResolution;
 	float fractTime = fract(uTime/2.0);
 	float dist = max(abs(uv.x-0.5),abs(uv.y-0.5));
 //	vec4 inCol = vec4(0.737,0.807,0.674, 1.0);
