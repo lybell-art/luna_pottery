@@ -11,7 +11,7 @@ vec4 screenBlend(vec4 a, vec4 b)
 
 void main()
 {
-	vec2 uv = (gl_FragCoord.xy * 2.0 - 1.0)/uResolution;
+	vec2 uv = ((gl_FragCoord.xy + 1.0)* 0.5)/uResolution;
 	float fractTime = fract(uTime/2.0);
 	float dist = max(abs(uv.x-0.5),abs(uv.y-0.5));
 //	vec4 inCol = vec4(0.737,0.807,0.674, 1.0);
@@ -20,5 +20,5 @@ void main()
 	tempCol = 1.0 - (1.0 - tempCol) * (1.0-abs(dist+0.5));
 	vec4 outCol=vec4(tempCol,tempCol,tempCol,1.0);
 //	gl_FragColor =screenBlend(inCol*0.7, outCol);
-	gl_FragColor = vec4(0.5,0.5,uv.x,1.0);
+	gl_FragColor = vec4(0.5,0.5,uv.y,1.0);
 }
