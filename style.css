@@ -18,12 +18,12 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 input[type="range"]:hover::-webkit-slider-runnable-track,
 input[type="range"]:focus::-webkit-slider-runnable-track {
-    background: #fff; /*activeTrackColor*/
+    background: #777; /*activeTrackColor*/
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: #fff; /*thumbColor*/
+    background: #777; /*thumbColor*/
     width: 18px; /* thumbHeight + (2 x thumbBorderWidth)*/
     height: 18px; /* thumbHeight + (2 x thumbBorderWidth)*/
     border-radius: 50%;
@@ -52,11 +52,11 @@ input[type="range"]::-moz-range-track {
 
 input[type="range"]:hover::-moz-range-track,
 input[type="range"]:focus::-moz-range-track {
-    background: #fff; /*activeTrackColor*/
+    background: #777; /*activeTrackColor*/
 }
 
 input[type="range"]::-moz-range-thumb {
-    background: #fff; /*thumbColor*/
+    background: #777; /*thumbColor*/
     width: 10px; /*thumbHeight*/
     height: 10px; /*thumbHeight*/
     border-radius: 50%;
@@ -70,7 +70,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 input[type="range"]::-moz-range-progress {
-    background: #fff; /*thumbColor*/
+    background: #777; /*thumbColor*/
     border-radius: 4px; /*trackHeight*/
     height: 4px; /*trackHeight*/
 }
@@ -91,11 +91,11 @@ input[type="range"]::-ms-track {
 
 input[type="range"]:hover::-ms-track,
 input[type="range"]:focus::-ms-track {
-    background: #fff; /*activeTrackColor*/
+    background: #777; /*activeTrackColor*/
 }
 
 input[type="range"]::-ms-thumb {
-    background: #fff; /*thumbColor*/
+    background: #777; /*thumbColor*/
     width: 10px; /*thumbHeight*/
     height: 10px; /*thumbHeight*/
     border-radius: 50%;
@@ -115,7 +115,7 @@ input[type="range"]::-ms-tooltip {
 }
 
 input[type="range"]::-ms-fill-lower {
-    background: #fff; /*thumbColor*/
+    background: #777; /*thumbColor*/
     border-radius: 4px; /*trackHeight*/
 }
 
