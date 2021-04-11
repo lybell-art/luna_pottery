@@ -26,47 +26,47 @@ float noise( in vec2 p ) {
     return dot( n, vec3(70.0) );
 }
 float fbm ( in vec2 p ) {
-    float f = 0.0;
-    mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
-    f  = 0.5000*noise(p); p = m*p;
-    f += 0.2500*noise(p); p = m*p;
-    f += 0.1250*noise(p); p = m*p;
-    f += 0.0625*noise(p); p = m*p;
-    f = 0.5 + 0.5 * f;
-    return f;
+	float f = 0.0;
+	mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
+	f  = 0.5000*noise(p); p = m*p;
+	f += 0.2500*noise(p); p = m*p;
+	f += 0.1250*noise(p); p = m*p;
+	f += 0.0625*noise(p); p = m*p;
+	f = 0.5 + 0.5 * f;
+	return f;
 }
 
 vec4 screenBlend(vec4 a, vec4 b)
 {
-	return 1-(1.0-a)*(1.0-b);
+	return 1.0-(1.0-a)*(1.0-b);
 }
 
 void main()
 {
-    vec2 uv = gl_FragCoord.xy/uResolution;
-    float tt = uTime * 0.01;
-    
-    //generate mountains
-    float mountain[4];
-    for(int i=0;i<4;i++)
-    {
-    	mountain[i]=1-fbm(vec2((uv.x+tt*(i+1))*(1+0.5*i), i*10))*(0.5+(0.1*i))-(0.1*i)+0.05;
-    }
-    vec4 col[4] = vec4[4](vec4(0.9,0.9,0.9, 1.0),
-    vec4(0.7,0.7,0.7, 1.0),
-    vec4(0.5,0.5,0.5, 1.0),
-    vec4(0.3,0.3,0.3, 1.0));
-    vec4 outCol[4];
-//    vec4 inCol = vec4(0.737,0.807,0.674, 1.0);
-    const vec4 white = vec4(1.0,1.0,1.0, 1.0);
-    
-    //mix color gradation
-    for(int i=0;i<4;i++)
-    {
-    	outCol[i]=mix(col[i], white, (mountain[i] > uv.y) ? (mountain[i]-uv.y)*3 : 1.0);
-    }
-    vec4 tempCol = outCol[0] * outCol[1] * outCol[2] * outCol[3];
-    
-    //color tint   
-    gl_FragColor = screenBlend(inCol*0.7, tempCol);
+	vec2 uv = gl_FragCoord.xy/uResolution;
+	float tt = uTime * 0.01;
+
+	//generate mountains
+	float mountain[4];
+	for(int i=0;i<4;i++)
+	{
+		mountain[i]=1.0-fbm(vec2((uv.x+tt*(i+1.0))*(1.0+0.5*i), i*10.0))*(0.5+(0.1*i))-(0.1*i)+0.05;
+	}
+	vec4 col[4] = vec4[4](vec4(0.9,0.9,0.9, 1.0),
+	vec4(0.7,0.7,0.7, 1.0),
+	vec4(0.5,0.5,0.5, 1.0),
+	vec4(0.3,0.3,0.3, 1.0));
+	vec4 outCol[4];
+//	vec4 inCol = vec4(0.737,0.807,0.674, 1.0);
+	const vec4 white = vec4(1.0,1.0,1.0, 1.0);
+
+	//mix color gradation
+	for(int i=0;i<4;i++)
+	{
+		outCol[i]=mix(col[i], white, (mountain[i] > uv.y) ? (mountain[i]-uv.y)*3 : 1.0);
+	}
+	vec4 tempCol = outCol[0] * outCol[1] * outCol[2] * outCol[3];
+
+	//color tint   
+	gl_FragColor = screenBlend(inCol*0.7, tempCol);
 }
