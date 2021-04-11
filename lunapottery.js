@@ -3,7 +3,7 @@ let transitor={pre:0, cur:0, scale:0, set:function(c){this.pre=this.cur, this.cu
 let myCam, cameraPos;
 let slider;
 let darkMode=false;
-let sansuShader, sansuTexture;
+let sansuShader, sansuTexture, floorShader, floorTexture;
 
 class showPottery{
 	static pre=0;
@@ -57,6 +57,7 @@ function preload() {
 		pot[i]=loadModel('assets/ceramic'+(i+1)+'.obj');
 	}
 	sansuShader = loadShader('sansu.vert','sansu.frag');
+	floorShader = loadShader('sansu.vert','floor.frag');
 }
 
 function setup()
@@ -74,6 +75,8 @@ function setup()
 	//prepare sansu-wall texture
 	sansuTexture = createGraphics(1000, 600, WEBGL);
 	sansuTexture.noStroke();
+	floorTexture = createGraphics(1000, 1000, WEBGL);
+	floorTexture.noStroke();
 }
 
 function draw()
@@ -84,12 +87,22 @@ function draw()
 	//rendering sansu-wall
 	sansuTexture.shader(sansuShader);
 	
-	sansuShader.setUniform("uResolution", [width, height]);
+	sansuShader.setUniform("uResolution", [sansuTexture.width, sansuTexture.height]);
 	sansuShader.setUniform("uTime", millis() / 1000.0);
 	sansuShader.setUniform("inCol", seasonCol[0]._array);
 
 	// passing the shaderTexture layer geometry to render on
 	sansuTexture.rect(0,0,sansuTexture.width,sansuTexture.height);
+	
+	//rendering floor-pulse
+	floorTexture.shader(floorShader);
+	
+	floorShader.setUniform("uResolution", [floorTexture.width, floorTexture.height]);
+	floorShader.setUniform("uTime", millis() / 1000.0);
+	floorShader.setUniform("inCol", seasonCol[0]._array);
+
+	// passing the shaderTexture layer geometry to render on
+	floorTexture.rect(0,0,floorTexture.width,floorTexture.height);
 
 	background(255);
 	orbitControl(2,2,0);
@@ -112,7 +125,7 @@ function draw()
 	push();
 	rotateX(PI/2);
 	if(darkMode) fill(10);
-	else fill(255);
+	else texture(floorTexture);
 	plane(1000,1000);
 	pop();
 	
