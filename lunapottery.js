@@ -95,13 +95,11 @@ function draw()
 	sansuTexture.rect(0,0,sansuTexture.width,sansuTexture.height);
 	
 	//rendering floor-pulse
-//	floorTexture.shader(floorShader);
+	floorTexture.shader(floorShader);
 	
 	floorShader.setUniform("uResolution", [floorTexture.width, floorTexture.height]);
 	floorShader.setUniform("uTime", millis() / 1000.0);
 	floorShader.setUniform("inCol", seasonCol[0]._array);
-//	floorTexture.background(0);
-	floorTexture.fill(128);
 	// passing the shaderTexture layer geometry to render on
 	floorTexture.plane(1000);
 
