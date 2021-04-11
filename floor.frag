@@ -19,5 +19,6 @@ void main()
 	float tempCol = (distTime < 0.02) ? ( ( (distTime*50.0)*(distTime*50.0) ) /2.0 + 0.5) : 1.0;
 	tempCol = 1.0 - (1.0 - tempCol) * (1.0-abs(dist+0.5));
 	vec4 outCol=vec4(tempCol,tempCol,tempCol,1.0);
-	gl_FragColor =screenBlend(inCol*0.7, outCol);
+//	gl_FragColor =screenBlend(inCol*0.7, outCol);
+	gl_FragColor = vec4(0.5,0.5,uv.x,1.0);
 }
