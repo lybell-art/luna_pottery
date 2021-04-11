@@ -4,6 +4,7 @@ let myCam, cameraPos;
 let slider;
 let darkMode=false;
 let sansuShader, sansuTexture, floorShader, floorTexture;
+let bgm1, bgm2, isBGMStarted=false;
 
 class showPottery{
 	static pre=0;
@@ -58,6 +59,8 @@ function preload() {
 	}
 	sansuShader = loadShader('sansu.vert','sansu.frag');
 	floorShader = loadShader('floor.vert','floor.frag');
+	bgm1 = loadSound('assets/gukak_bgm.mp3');
+	bgm2 = loadSound('assets/forest_bgm.mp3');
 }
 
 function setup()
@@ -147,6 +150,15 @@ function windowResized()
 	resizeCanvas(windowWidth, windowHeight, false);
 	myCam.setPosition(cameraPos.eyeX,cameraPos.eyeY,cameraPos.eyeZ);
 	myCam.lookAt(cameraPos.centerX,cameraPos.centerY,cameraPos.centerZ);
+}
+
+function mousePressed() {
+	if(!isBGMStarted)
+	{
+		bgm1.loop();
+		bgm2.loop();
+		isBGMStarted=true;
+	}
 }
 
 function keyPressed() {
