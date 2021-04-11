@@ -72,10 +72,14 @@ function setup()
 
 function draw()
 {
-	let seasonCol = seasonColor(slider.value(),1);
+	let seasonCol=[];
+	for(var i=0;i<2;i++) seasonCol[i] = seasonColor(slider.value(),1);
+	
 	if(darkMode) background(5);
 	else background(200);
 	orbitControl(2,2,0);
+	
+	//plain draw
 	push();
 	translate(0,-300,0);
 	for(var i=0;i<4;i++)
@@ -88,17 +92,19 @@ function draw()
 		pop();
 	}
 	pop();
+	
+	//floor draw
 	push();
 	rotateX(PI/2);
 	if(darkMode) fill(18, 20, 20);
-//	else fill(184, 203, 203);
-	else fill(seasonCol);
+	else fill(seasonCol[0]);
 	plane(1000,1000);
 	pop();
 	
+	//pottery draw
 	lights();
 	if(!darkMode) directionalLight(160,184,172,-0.127,0.45,0.156);
-	pointLight(seasonCol, 0, -480, 0);
+	pointLight(seasonCol[1], 0, -480, 0);
 	pointLight(150, 176, 210, 0, 580, 0);
 	translate(0,-80,0);
 	if(darkMode) ambientMaterial(22, 23, 22);
