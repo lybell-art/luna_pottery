@@ -52,7 +52,8 @@ void main()
 	float mountain[4];
 	for(int i=0;i<4;i++)
 	{
-		mountain[i]=1.0-fbm(vec2((uv.x+tt*(i+1.0))*(1.0+0.5*i), i*10.0))*(0.5+(0.1*i))-(0.1*i)+0.05;
+		float iF=float(i);
+		mountain[i]=1.0-fbm(vec2((uv.x+tt*(iF+1.0))*(1.0+0.5*iF), iF*10.0))*(0.5+(0.1*iF))-(0.1*iF)+0.05;
 	}
 	vec4 col[4] = vec4[4](vec4(0.9,0.9,0.9, 1.0),
 	vec4(0.7,0.7,0.7, 1.0),
