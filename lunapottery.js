@@ -111,7 +111,8 @@ function draw()
 	//floor draw
 	push();
 	rotateX(PI/2);
-	fill(255);
+	if(darkMode) fill(10);
+	else fill(255);
 	plane(1000,1000);
 	pop();
 	
